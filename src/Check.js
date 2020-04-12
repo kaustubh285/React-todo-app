@@ -8,12 +8,12 @@ let Check = (props) =>{
             <input type="checkbox"></input>
             <p>
                 <b>TASK:</b>
-                {props.details.task}
+                {props.task}
             </p>
             <pre>   </pre>
-            <p style={{display:props.details.endby ? "block" : "none", color: props.details.endby=="today" ? "red": 'blue'}}>
+            <p style={{display:props.endby ? "block" : "none", color: props.endby==="today" ? "red": 'blue'}}>
                 <b>END BY:</b>
-                {props.details.endby}
+                {props.endby}
             </p>
         </div>
     )

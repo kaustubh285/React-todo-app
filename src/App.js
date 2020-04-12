@@ -1,11 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
 import './check.css';
-import Time from "./Time.js"
 import Check from "./Check.js"
+import taskData from "./TasksData"
 
 function App() {
-
+  const taskDataList = taskData.map(TaskAtHand =>{
+    return(
+      <Check task_id = {TaskAtHand.task_id} task={TaskAtHand.task} endby={TaskAtHand.endby} />
+    )
+  }
+  )
   const date = new Date()
   return (
     <div className="">
@@ -15,9 +19,7 @@ function App() {
         <h4 className="styler"> Red  -  More urgent</h4>
       </header>
       <div className="todo-list">
-        <Check details={{task:"Start learning react"}}/>
-        <Check details={{task:"Make a todo list using react", endby:"tomorrow"}}/>
-        <Check details={{task:"Apply for companies", endby:"today"}}/>
+        {taskDataList}
       </div>
     </div>
   );
