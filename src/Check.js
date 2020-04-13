@@ -3,10 +3,15 @@ import "./check.css"
 
 let Check = (props) =>{
     console.log(props)
+
+    const taskOver ={
+        color:"#cdcdcd",
+        textDecoration : "line-through"
+    }
     return(
         <div className="todo-item">
             <input type="checkbox" checked={props.tasktodo.complete} onChange={()=> props.isComplete(props.tasktodo.id)}></input>
-            <p >
+            <p style={props.tasktodo.complete ? taskOver : null}>
                 <b>TASK:</b>
                 {props.tasktodo.task}
             </p>
