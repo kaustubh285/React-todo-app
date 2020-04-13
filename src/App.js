@@ -12,20 +12,36 @@ class App extends React.Component{
     this.state={
       todoData :taskData
     }
+    this.completeChange = this.completeChange.bind(this)
+  }
+
+  completeChange(id){
+    this.setState(prevState=>{
+      const newData = prevState.todoData.map(todos =>{
+        if(todos.id === id){
+          
+          return{
+            ...todos,
+            complete:!todos.complete
+          }
+        }
+        return todos
+      })
+      return{
+        todoData:newData
+      } 
+    })
   }
 
   render(){
     
     const taskDataList = this.state.todoData.map(todoThing =>{
-    return  <Check key={todoThing.id} tasktodo={todoThing} />
+    return  <Check key={todoThing.id} tasktodo={todoThing} isComplete={this.completeChange}/>
     })
-    const date = new Date()
     return (
       <div className="">
         <header className="todo-list">
-          <h1>First ToDo List - {date.getDate()}th April</h1>
-          <h4 className="styleb"> Blue  -  Less urgent</h4>
-          <h4 className="styler"> Red  -  More urgent</h4>
+          <h1>First ToDo List</h1>
         </header>
         <div className="todo-list">
           {taskDataList}

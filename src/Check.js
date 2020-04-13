@@ -5,8 +5,8 @@ let Check = (props) =>{
     console.log(props)
     return(
         <div className="todo-item">
-            <input type="checkbox"></input>
-            <p>
+            <input type="checkbox" checked={props.tasktodo.complete} onChange={()=> props.isComplete(props.tasktodo.id)}></input>
+            <p >
                 <b>TASK:</b>
                 {props.tasktodo.task}
             </p>
