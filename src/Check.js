@@ -2,7 +2,6 @@ import React from "react"
 import "./check.css"
 
 let Check = (props) =>{
-    console.log(props)
 
     const taskOver ={
         color:"#cdcdcd",

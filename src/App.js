@@ -2,7 +2,7 @@ import React from 'react';
 import './check.css';
 import Check from "./Check.js"
 import taskData from "./TasksData"
-
+import AddItem from "./AddItem.js"
 
 
 class App extends React.Component{
@@ -13,6 +13,7 @@ class App extends React.Component{
       todoData :taskData
     }
     this.completeChange = this.completeChange.bind(this)
+    //this.onAddTask = this.onAddTask.bind(this)
   }
 
   completeChange(id){
@@ -44,6 +45,7 @@ class App extends React.Component{
           <h1>First ToDo List</h1>
         </header>
         <div className="todo-list">
+          <AddItem />
           {taskDataList}
         </div>
       </div>
